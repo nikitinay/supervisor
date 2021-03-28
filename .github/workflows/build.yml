@@ -40,4 +40,4 @@ jobs:
       - name: Publish main image
         run: | 
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker push nikitinay/helloworld
+          docker push nikitinay/supervisor
