@@ -1,0 +1,43 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    paths-ignore:
+      - '**/README.md'
+      - '**/.gitignore'
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        image:
+          - name: python:3.9.2
+            python_version: "3.9"
+      fail-fast: true
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.9"
+
+      - name: Install Dependencies
+        run: python3.9 -m pip install docker
+
+      - name: Deploy Image
+        run: docker build -t nikitinay/supervisor .
+        env:
+          NAME: ${{ matrix.image.name }}
+          PYTHON_VERSION: ${{ matrix.image.python_version }}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Publish main image
+        run: | 
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker push nikitinay/helloworld
