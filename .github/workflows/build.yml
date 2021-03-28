@@ -29,7 +29,7 @@ jobs:
       - name: Install Dependencies
         run: python3.9 -m pip install docker
 
-      - name: Deploy Image
+      - name: Build Image
         run: docker build -t nikitinay/supervisor .
         env:
           NAME: ${{ matrix.image.name }}
