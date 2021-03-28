@@ -1,6 +1,8 @@
 # supervisor
 
-docker run -it  nikitinay/supervisor --restart_interval 1 --max_restarts 5 --process_name "bash" --check_interval 5 --command 'bash -c "sleep 1 && exit 0"'
+
+<details><summary>docker run -it  nikitinay/supervisor --restart_interval 1 --max_restarts 5 --process_name "bash" --check_interval 5 --command 'bash -c "sleep 1 && exit 0"'</summary>
+<p>
 
 ```
 2021-03-28 14:33:03,248:INFO:######## arguments ########
@@ -17,6 +19,8 @@ docker run -it  nikitinay/supervisor --restart_interval 1 --max_restarts 5 --pro
 2021-03-28 14:33:16,281:INFO:starting bash
 2021-03-28 14:33:17,286:ERROR:max number of restarts reached
 ```
+</p>
+</details>
 
 docker run -it  nikitinay/supervisor --restart_interval 1 --max_restarts 5 --process_name "bash" --check_interval 5 --command 'bash -c "sleep 5 && exit 0"'
 
