@@ -66,22 +66,22 @@
 </p>
 </details>
 
-<details><summary>docker run -it  nikitinay/supervisor --restart_interval 1 --max_restarts 5 --process_name "bash" --check_interval 5 --command 'sh -c "sleep 10 && exit 1"'</summary>
+<details><summary>docker run -it  nikitinay/supervisor --restart_interval 1 --max_restarts 5 --process_name "sh" --check_interval 5 --command 'sh -c "sleep 10 && exit 1"'</summary>
 <p>
 
 ```
 2021-03-28 14:35:26,588:INFO:######## arguments ########
         restart_interval = 1,
         max_restarts = 5 ,
-        process_name = bash ,
+        process_name = sh ,
         check_interval = 5 ,
         command = sh -c "sleep 10 && exit 1"
 
-2021-03-28 14:35:27,590:INFO:starting bash
-2021-03-28 14:35:39,596:INFO:starting bash
-2021-03-28 14:35:51,602:INFO:starting bash
-2021-03-28 14:36:03,607:INFO:starting bash
-2021-03-28 14:36:15,614:INFO:starting bash
+2021-03-28 14:35:27,590:INFO:starting sh
+2021-03-28 14:35:39,596:INFO:starting sh
+2021-03-28 14:35:51,602:INFO:starting sh
+2021-03-28 14:36:03,607:INFO:starting sh
+2021-03-28 14:36:15,614:INFO:starting sh
 2021-03-28 14:36:25,616:ERROR:max number of restarts reached
 ```
 
